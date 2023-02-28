@@ -1,0 +1,50 @@
+<%- include ../partials/header.ejs %>
+<%- include ../partials/main_nav.ejs %>
+
+<link href="Content/app.css" rel="stylesheet" type="text/css">
+
+<main class="container">
+    <div class="row">
+        <div class="offset-md-1 col-md-10">
+            <h1><%= title %></h1>
+            <br>
+            <a href="/contact-list/add" class = "btn btn-primary" role="button">
+            <i>Add a contact</i></a>
+            <br>
+            <br>
+            <table class="table table-bordered table-striped table-hover text-center">
+                <thead>
+                  <tr class="d-flex">
+                      <th>Contact Name</th>
+                      <th>Phone Number</th>
+                      <th id="email">Email Address</th>
+                      <th id="op">Operations</th>
+                  </tr>
+                </thead>
+                <!-- Dynamic iterative templating-->
+                <tbody>
+                  <% let ContactArray = ContactList %>
+                  <% ContactArray.sort((a, b) => a.contactName.localeCompare(b.contactName)) %> 
+                  <% for(var i=0; i < ContactArray.length; i++) { %>
+                    <tr class="d-flex">
+                      <td><%= ContactArray[i].contactName %></td>
+                      <td><%= ContactArray[i].phoneNumber %></td>
+                      <td id="emailAdd"><%= ContactArray[i].emailAddress %></td>
+                      <td>
+                      <a href = "/contact-list/edit/<%= ContactArray[i]._id %>" type="button" class="btn btn-primary btn-sm">Update</a>
+                      </td>
+                      <td>
+                      <a href = "/contact-list/delete/<%= ContactArray[i]._id %>" type="button" class="btn btn-danger btn-sm">Delete</a>
+                      </td>
+                    </tr>
+                  <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</main>
+
+
+<%- include ../partials/bottom_nav.ejs %>
+<%- include ../partials/footer.ejs %>

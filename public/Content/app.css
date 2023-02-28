@@ -9,12 +9,12 @@ Date: 2023-02-09
 /* custom css goes here */
 
 body {
-    color: white;
+    color: rgb(26, 25, 25);
     font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
-    background-color: #222D33; 
+    background-color: #f8fbfc; 
     min-height: 100vh; 
     position: relative;
-    padding-top: 100px;
+    padding-top: 0px;
 }
 
 
@@ -33,7 +33,7 @@ a:hover, a:active {
 
 /* Top navigation bar */
 .main-nav {
-    background-color: #484f58;
+    background-color: #d5e3f5;
 }
 
 /* Home Page */
@@ -109,3 +109,12 @@ a:hover, a:active {
     background-color: #4B7AB0; 
     color:#222D33;
 }
+
+/* contactlist - list */
+th, td { width: 200px }
+
+th#op { width: 400px }
+
+th#email { width: 400px }
+
+td#emailAdd { width: 400px }
